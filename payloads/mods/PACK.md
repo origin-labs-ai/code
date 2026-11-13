@@ -26,14 +26,14 @@ the upstream license. Nothing is minified, bundled or patched at install time.
 Full clone:
 
 ```bash
-git clone https://github.com/origin-labs-ai/code-fusion.git
-claude --plugin-dir code-fusion/payloads/mods/games/typing-test
+git clone https://github.com/origin-labs-ai/code.git
+claude --plugin-dir code/payloads/mods/games/typing-test
 ```
 
 Sparse clone (recommended — downloads only the mod you want):
 
 ```bash
-git clone --filter=blob:none --sparse https://github.com/origin-labs-ai/code-fusion.git
+git clone --filter=blob:none --sparse https://github.com/origin-labs-ai/code.git
 cd code-fusion
 git sparse-checkout set payloads/mods/games/typing-test
 claude --plugin-dir payloads/mods/games/typing-test

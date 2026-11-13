@@ -3,6 +3,6 @@
   "alias": "Studio",
   "windowTitle": "Onyx",
   "folder": "windows/onyx",
-  "contents": "Reverse-engineered Qoder desktop build - CodeFusion.exe plus SOURCE/; 4,715 files (943 MB).",
+  "contents": "Reverse-engineered Qoder desktop build - CodeFusion.exe plus SOURCE/; SOURCE/ also holds official VS Code OSS 1.147.0 source at vscode-main/; 25,940 files (1.4 GB).",
   "status": "present"
 }

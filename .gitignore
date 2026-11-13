@@ -143,3 +143,21 @@ temp/
 target/
 **/target/
 Cargo.lock.bak
+
+# ---------- local-only imported apps, installers and captured source ----------
+# Not part of the contribution scope: no binaries, installers or imported
+# third-party source trees are tracked (see CONTRIBUTING.md).
+/windows/codeix/layout/
+/windows/gsx-cli/
+/windows/onyx/SOURCE/
+/windows/zingma/SOURCE/
+/windows/zenix/SOURCE/
+/windows/vs-ext/
+
+# Parked, local-only imported plugin (D-25: Sonar integration not started).
+# Do not redistribute the upstream source tree (see CONTRIBUTING.md).
+/slider/effort/
+
+# Windows shortcuts embed absolute local paths (personal data) - never commit.
+/merger/windows.lnk
+/windows/merger/windows.lnk

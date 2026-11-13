@@ -18,7 +18,7 @@ const files = [
   "BRAND.md",
   "scripts/rebrand/check-consistency.mjs",
   "scripts/rebrand/sync-window-json.mjs",
-  "scripts/rebrand/fix-zenix-cc.mjs",
+  "scripts/rebrand/fix-zenix.mjs",
   "scripts/rebrand/fix-sonar-dsh.mjs",
   "scripts/rebrand/rename-parts.mjs",
   "scripts/rebrand/rename-parts-2.mjs",

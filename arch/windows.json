@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-12",
   "naming": {
     "launcherName": "Launcher Desktop",
     "launcherWindowTitle": "Launcher",
@@ -15,44 +15,41 @@
     "retiredAliases": [
       "Core"
     ],
-    "notes": "Ingot is not the main part. Zingma takes Lite, Sonar takes Plus (official DeepSeek Harness), Zenix CC takes Ultra."
+    "notes": "Ingot is not the main part. Zingma takes Lite, Sonar takes Plus (official DeepSeek Harness), Zenix takes Ultra. Chromix is no longer a separate window: the browser ships integrated inside Codeix and that integrated browser is what is called Chromix."
   },
   "launcher": {
     "name": "Launcher Desktop",
     "windowTitle": "Launcher",
     "folder": "launcher",
-    "role": "Starts any part. No product logic of its own.",
-    "status": "shell"
+    "role": "Asks one question: open the Editor window or the Fusion window. Product choice moved in-app as layouts (see arch/layouts.json).",
+    "status": "shell",
+    "choices": [
+      "Editor window",
+      "Fusion window"
+    ]
   },
   "parts": [
     {
       "codename": "Ingot",
       "alias": "Max",
       "folder": "windows/ingot",
-      "contents": "Monorepo tree - apps/, packages/, config/, docs/, node_modules; 160,239 files (3.9 GB). Role is NOT decided.",
+      "contents": "ZCode (Zhipu) source monorepo — package 'code-fusion' 3.17.0, @origin-ai/cf-* packages, apps/cli (cf-cli 0.17.0); 160,239 files (3.9 GB).",
       "status": "present"
     },
     {
       "codename": "Onyx",
       "alias": "Studio",
       "folder": "windows/onyx",
-      "contents": "Reverse-engineered Qoder desktop build - CodeFusion.exe plus SOURCE/; 4,715 files (943 MB).",
+      "contents": "VS Code OSS 1.147.0 source at SOURCE/vscode-main (21,224 files / 392 MB). The reverse-engineered Qoder desktop build (CodeFusion.exe + resources/) is RETIRED — what we wanted from Qoder is Zingma.",
       "status": "present",
       "physicalFolder": "windows/obsidian",
       "folderNote": "windows/onyx is a junction; physical folder rename is pending (handle lock)."
     },
     {
-      "codename": "Chromix",
-      "alias": null,
-      "folder": "windows/chromix",
-      "contents": "Zephium browser source - package name 'zephium', crates/, desktop/, eval/; 3,691 files.",
-      "status": "present"
-    },
-    {
       "codename": "Codeix",
       "alias": "Pro",
       "folder": "windows/codeix",
-      "contents": "Two OpenAI Codex MSIX packages (ui-old, ui-new) and a toggle; 2 files (1.6 GB).",
+      "contents": "Two OpenAI Codex MSIX packages (ui-old, ui-new) and a toggle; 2 files (1.6 GB). Its integrated browser is the part called Chromix (no separate windows/chromix tree).",
       "status": "present"
     },
     {
@@ -66,8 +63,8 @@
       "codename": "Zingma",
       "alias": "Lite",
       "folder": "windows/zingma",
-      "contents": "Empty - only window.json. Seat reserved for Qoder's native built-in Quest/agents window.",
-      "status": "empty"
+      "contents": "Qoder 1.18.0 native Quest/agents window (upstream codename Lingma); SOURCE/ raw + oxfmt-beautified, 66 files / 125 MB.",
+      "status": "present"
     },
     {
       "codename": "Sonar",
@@ -77,11 +74,11 @@
       "status": "empty"
     },
     {
-      "codename": "Zenix CC",
+      "codename": "Zenix",
       "alias": "Ultra",
-      "folder": "windows/zenix-cc",
-      "contents": "Empty - only window.json. Seat for native Claude Desktop.",
-      "status": "empty"
+      "folder": "windows/zenix",
+      "contents": "Native Claude Desktop 5.1231.2; SOURCE/ with app.asar + ion-dist.asar + claude-vm VHDX, 11,874 files / 940 MB.",
+      "status": "present"
     }
   ],
   "aliasResolve": {
@@ -90,6 +87,6 @@
     "Pro": "Codeix",
     "Studio": "Onyx",
     "Max": "Ingot",
-    "Ultra": "Zenix CC"
+    "Ultra": "Zenix"
   }
 }

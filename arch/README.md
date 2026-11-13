@@ -1,26 +1,26 @@
 # Base architecture
 
-One launcher, eight parts. No part is named "CodeFusion"; the launcher's window title is
+One launcher, seven parts. No part is named "CodeFusion"; the launcher's window title is
 **Launcher**. Parts are addressed by codename, and each codename owns exactly one alias.
 
 ```
-code-fusion/
-├─ launcher/              "Launcher" window — 8 cards, no product logic
+code/
+├─ launcher/              "Launcher" window — 2 choices: Editor window / Fusion window
 │  ├─ index.html          title: Launcher
 │  ├─ launch.ps1          .\launch.ps1 [codename|alias]
 │  └─ window.json
 ├─ windows/
-│  ├─ ingot/              monorepo tree (apps/, packages/, config/, docs/, node_modules)
-│  ├─ onyx/               reverse-engineered Qoder desktop build (CodeFusion.exe + SOURCE/)
-│  ├─ chromix/            Zephium browser source
-│  ├─ codeix/             OpenAI Codex MSIX (ui-old, ui-new) + toggle
+│  ├─ ingot/              ZCode (Zhipu) source monorepo — code-fusion 3.17.0
+│  ├─ onyx/               VS Code OSS 1.147.0 source (SOURCE/vscode-main); Qoder build retired
+│  ├─ codeix/             OpenAI Codex MSIX (ui-old, ui-new) + toggle; integrated browser = Chromix
 │  ├─ gsx-cli/            opencode workspace (holds MiMoCode source from Xiaomi)
-│  ├─ zingma/             empty — seat for Qoder's native Quest/agents window
+│  ├─ zingma/             Qoder's native Quest/agents window (SOURCE/ extracted)
 │  ├─ sonar/              empty — seat for the reverse-engineered DeepSeek Harness (DSH)
-│  └─ zenix-cc/           empty — seat for native Claude Desktop
+│  └─ zenix/              native Claude Desktop (SOURCE/ extracted)
 ├─ arch/
 │  ├─ windows.json        registry: codename, alias, folder, contents, status
-│  └─ brand.ts            typed mirror + findPart() / findPartByAlias() / resolvePart()
+│  ├─ brand.ts            typed mirror + findPart() / findPartByAlias() / resolvePart()
+│  └─ layouts.json        in-app layout registry (Lite..Ultra + GSX-CLI)
 ├─ payloads/               built-in payloads (skills/, extras/, agents/, bundled/, plugins/)
 ├─ scripts/rebrand/       rename, sync and consistency tooling
 └─ BRAND.md               what is decided and what is not
@@ -30,15 +30,15 @@ code-fusion/
 | --- | --- | --- | --- | --- |
 | **Ingot** | Max | `windows/ingot` | Monorepo tree; 160,239 files (3.9 GB) | present |
 | **Onyx** | Studio | `windows/onyx` | RE'd Qoder build — `CodeFusion.exe` + `SOURCE/`; 4,715 files (943 MB) | present |
-| **Chromix** | # | `windows/chromix` | Zephium browser source; 3,691 files | present |
-| **Codeix** | Pro | `windows/codeix` | OpenAI Codex MSIX (`ui-old`, `ui-new`) + toggle; 2 files | present |
+| **Codeix** | Pro | `windows/codeix` | OpenAI Codex MSIX (`ui-old`, `ui-new`) + toggle; its integrated browser is called Chromix | present |
 | **GSX-CLI** | # | `windows/gsx-cli` | opencode workspace + MiMoCode (Xiaomi) source; 2,060 files | present |
-| **Zingma** | Lite | `windows/zingma` | Qoder's native Quest/agents window (not placed yet) | empty |
+| **Zingma** | Lite | `windows/zingma` | Qoder's native Quest/agents window — `SOURCE/` extracted | present |
 | **Sonar** | Plus | `windows/sonar` | reverse-engineered DeepSeek Harness (DSH) (not placed yet) | empty |
-| **Zenix CC** | Ultra | `windows/zenix-cc` | native Claude Desktop (not placed yet) | empty |
+| **Zenix** | Ultra | `windows/zenix` | native Claude Desktop — `SOURCE/` extracted | present |
 
-Ladder: **Lite → Plus → Pro → Studio → Max → Ultra**. `Core` is retired (`#`); Chromix and
-GSX-CLI also hold no alias.
+Ladder: **Lite → Plus → Pro → Studio → Max → Ultra**. `Core` is retired (`#`); GSX-CLI also
+holds no alias. **Chromix is not a part** — it is the name of the browser integrated inside
+Codeix; there is no `windows/chromix` tree.
 
 ## Rules
 

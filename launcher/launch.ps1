@@ -2,14 +2,14 @@
   Launcher - lists parts, or starts/reports one.
 
   Reads arch/windows.json. Accepts a codename ("onyx") or an alias ("studio").
-  Aliases: Lite -> Zingma, Pro -> Codeix, Studio -> Onyx, Max -> Ingot, Ultra -> Zenix CC.
-  "#" means the alias seat is retired (Chromix, GSX-CLI).
+  Aliases: Lite -> Zingma, Pro -> Codeix, Studio -> Onyx, Max -> Ingot, Ultra -> Zenix.
+  "#" means the alias seat is retired (GSX-CLI).
 
   Usage:
     .\launch.ps1              # list parts + aliases
     .\launch.ps1 studio       # alias -> Onyx, starts CodeFusion.exe
     .\launch.ps1 max          # alias -> Ingot, starts pnpm dev:desktop
-    .\launch.ps1 chromix      # codename: prints contents + status
+    .\launch.ps1 zenix        # codename: prints contents + status
 #>
 param([Parameter(Position = 0)][string]$Part)
 

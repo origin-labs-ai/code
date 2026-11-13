@@ -3,6 +3,6 @@
   "alias": "Lite",
   "windowTitle": "Zingma",
   "folder": "windows/zingma",
-  "contents": "Empty - only window.json. Seat reserved for Qoder's native built-in Quest/agents window.",
-  "status": "empty"
+  "contents": "Qoder 1.18.0 native Quest/agents window (upstream codename Lingma). SOURCE/ holds the byte-exact out/lingma tree (66 files, 61 MB), oxfmt-formatted copies (agents-window.desktop.main.js: 65.3 MB / 1,980,476 lines, node --check exit 0), MANIFEST.jsonl (72 lines), README + COVERAGE. Bundle is still Lingma/Qoder branded - rename not applied.",
+  "status": "present"
 }

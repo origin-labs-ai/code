@@ -1,7 +1,8 @@
 /**
- * Consistency check: registry <-> launcher HTML <-> folders.
+ * Consistency check: registry <-> layouts <-> launcher HTML <-> folders.
  *
- * Fails (exit 1) when the launcher drifts from `arch/windows.json`.
+ * Fails (exit 1) when the launcher, the in-app layout registry or the part
+ * registry drift from each other.
  *
  * Usage: node scripts/rebrand/check-consistency.mjs
  */
@@ -10,6 +11,7 @@ import { join } from "node:path";
 
 const root = join(import.meta.dirname, "..", "..");
 const registry = JSON.parse(readFileSync(join(root, "arch", "windows.json"), "utf8"));
+const layouts = JSON.parse(readFileSync(join(root, "arch", "layouts.json"), "utf8"));
 const html = readFileSync(join(root, "launcher", "index.html"), "utf8");
 const launcherJson = JSON.parse(readFileSync(join(root, "launcher", "window.json"), "utf8"));
 
@@ -22,19 +24,36 @@ const partNames = registry.parts.map((part) => part.codename);
 const ladder = registry.naming.ladder;
 const resolveKeys = Object.keys(registry.aliasResolve);
 
+// ---- launcher: two choices only -------------------------------------------
+const choices = registry.launcher.choices ?? [];
 check(
   "launcher window title",
   registry.launcher.windowTitle === "Launcher" && htmlTitle === "Launcher",
   `registry=${registry.launcher.windowTitle} html=${htmlTitle}`,
 );
 check(
-  "launcher manifest matches registry",
-  launcherJson.windowTitle === registry.launcher.windowTitle &&
-    JSON.stringify(launcherJson.parts) === JSON.stringify(partNames),
-  `window.json title=${launcherJson.windowTitle}, parts=${launcherJson.parts.length}`,
+  "launcher manifest matches registry choices",
+  JSON.stringify(launcherJson.choices) === JSON.stringify(choices),
+  `window.json=${JSON.stringify(launcherJson.choices)}`,
 );
-check("card count equals part count", cardNames.length === partNames.length, `${cardNames.length} vs ${partNames.length}`);
-check("cards list the same codenames", JSON.stringify(cardNames) === JSON.stringify(partNames), cardNames.join(", "));
+check("launcher offers exactly two choices", choices.length === 2, choices.join(" / "));
+check("card count equals choice count", cardNames.length === choices.length, `${cardNames.length} vs ${choices.length}`);
+check("cards list the launcher choices", JSON.stringify(cardNames) === JSON.stringify(choices), cardNames.join(", "));
+
+// ---- in-app layouts -------------------------------------------------------
+const layoutParts = layouts.layouts.map((l) => l.part);
+const missingLayoutParts = layoutParts.filter((p) => !partNames.includes(p));
+check("every layout points at a real part", missingLayoutParts.length === 0, missingLayoutParts.join(", ") || "none");
+const uncoveredParts = partNames.filter((p) => !layoutParts.includes(p));
+check("every part has a layout", uncoveredParts.length === 0, uncoveredParts.join(", ") || "none");
+const nums = layouts.layouts.map((l) => l.n);
+const uniqueNums = new Set(nums);
+check("layout numbering is contiguous from 1", nums.every((n, i) => n === i + 1) && uniqueNums.size === nums.length, nums.join(","));
+const aliasLayouts = layouts.layouts.filter((l) => l.alias !== null);
+const badAliasLayouts = aliasLayouts.filter((l) => registry.aliasResolve[l.alias] !== l.part);
+check("every alias layout's alias resolves to its part", badAliasLayouts.length === 0, badAliasLayouts.map((l) => l.alias).join(", ") || "none");
+
+// ---- aliases --------------------------------------------------------------
 check(
   "alias resolve keys equal the ladder",
   JSON.stringify(ladder) === JSON.stringify(resolveKeys),
@@ -45,6 +64,8 @@ check(
   registry.parts.every((part) => part.alias === null || ladder.includes(part.alias)),
   registry.parts.filter((part) => part.alias && !ladder.includes(part.alias)).map((part) => part.codename).join(", ") || "none",
 );
+
+// ---- folders --------------------------------------------------------------
 const missingFolders = registry.parts.filter((part) => !existsSync(join(root, part.folder))).map((part) => part.folder);
 check("every part folder exists", missingFolders.length === 0, missingFolders.join(", ") || "none");
 check(

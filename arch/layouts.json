@@ -1,0 +1,100 @@
+{
+  "schema": 1,
+  "updatedAt": "2026-11-12",
+  "ruling": "The Launcher no longer lists every part. It asks one question: open the Editor window, or the Fusion window. Part choice moved inside the app as a layout picker.",
+  "host": {
+    "id": "vscode-oss",
+    "source": "windows/onyx/SOURCE/vscode-main",
+    "version": "1.147.0",
+    "note": "VS Code OSS only. The Qoder desktop build (Onyx/resources) is retired; what we wanted from Qoder is Zingma."
+  },
+  "launcher": {
+    "prompt": "Editor window open karna hai ya Fusion window?",
+    "choices": [
+      {
+        "id": "editor",
+        "title": "Editor window",
+        "note": "One window, always available. Every layout also exposes 'Open in Editor Window'."
+      },
+      {
+        "id": "fusion",
+        "title": "Fusion window",
+        "note": "The merged window with the layout picker."
+      }
+    ]
+  },
+  "editorWindow": {
+    "id": "editor",
+    "title": "Editor window",
+    "singleton": true,
+    "invokedFrom": "every layout via 'Open in Editor Window'"
+  },
+  "layouts": [
+    {
+      "n": 1,
+      "id": "lite",
+      "name": "Lite",
+      "alias": "Lite",
+      "part": "Zingma",
+      "source": "Qoder 1.18.0 out/lingma — the Quest/agents window"
+    },
+    {
+      "n": 2,
+      "id": "plus",
+      "name": "Plus",
+      "alias": "Plus",
+      "part": "Sonar",
+      "source": "DeepSeek Harness (DSH)"
+    },
+    {
+      "n": 3,
+      "id": "pro",
+      "name": "Pro",
+      "alias": "Pro",
+      "part": "Codeix",
+      "source": "OpenAI Codex MSIX",
+      "variants": [
+        { "id": "new", "label": "New Codeix", "source": "ui-new 26.1021.3705.0" },
+        { "id": "old", "label": "Old Codeix", "source": "ui-old 26.707.3748.0" }
+      ],
+      "note": "Selecting Pro asks the user: new Codeix or old. Settings is also reachable as a sub-layout of this layout."
+    },
+    {
+      "n": 4,
+      "id": "studio",
+      "name": "Studio",
+      "alias": "Studio",
+      "part": "Onyx",
+      "source": "VS Code OSS 1.147.0 source (windows/onyx/SOURCE/vscode-main)"
+    },
+    {
+      "n": 5,
+      "id": "max",
+      "name": "Max",
+      "alias": "Max",
+      "part": "Ingot",
+      "source": "ZCode (Zhipu) source — code-fusion 3.17.0 monorepo"
+    },
+    {
+      "n": 6,
+      "id": "ultra",
+      "name": "Ultra",
+      "alias": "Ultra",
+      "part": "Zenix",
+      "source": "Claude Desktop 5.1231.2 (app.asar + ion-dist.asar)"
+    },
+    {
+      "n": 7,
+      "id": "gsx",
+      "name": "GSX-CLI",
+      "alias": null,
+      "part": "GSX-CLI",
+      "source": "opencode workspace (MiMoCode source from Xiaomi)"
+    }
+  ],
+  "openQuestions": [
+    "Layout 7 (GSX-CLI) has no alias. Keep it as a selectable layout, or expose it only as a terminal capability inside other layouts?",
+    "Codeix 'settings' sub-layout: is it a layout of its own, or a pane inside Pro?",
+    "Does the retired '#' alias become a 'Custom' layout entry?"
+  ]
+}

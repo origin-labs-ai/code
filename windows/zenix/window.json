@@ -1,0 +1,8 @@
+{
+  "codename": "Zenix",
+  "alias": "Ultra",
+  "windowTitle": "Zenix",
+  "folder": "windows/zenix",
+  "contents": "Native Claude Desktop 5.1231.2 (MSIX Claude_pzs8sxrjxfjjc). SOURCE/ holds both shipped ASARs byte-exact (app.asar 84.2 MB main process, ion-dist.asar 207.6 MB renderer), the claude-vm VHDX disk image, extracted trees (app 1,075 files / ion-dist 5,322 files), beautified JS (747 + 4,717 files), MANIFEST.jsonl (6,411 lines), README + COVERAGE.",
+  "status": "present"
+}

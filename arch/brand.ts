@@ -34,28 +34,21 @@ export const PARTS: readonly PartRecord[] = [
     codename: "Ingot",
     alias: "Max",
     folder: "windows/ingot",
-    contents: "Monorepo tree - apps/, packages/, config/, docs/, node_modules; 160,239 files (3.9 GB). Role is NOT decided.",
+    contents: "ZCode (Zhipu) source monorepo - package 'code-fusion' 3.17.0, @origin-ai/cf-* packages, apps/cli (cf-cli 0.17.0); 160,239 files (3.9 GB).",
     status: "present",
   },
   {
     codename: "Onyx",
     alias: "Studio",
     folder: "windows/onyx",
-    contents: "Reverse-engineered Qoder desktop build - CodeFusion.exe plus SOURCE/; 4,715 files (943 MB).",
-    status: "present",
-  },
-  {
-    codename: "Chromix",
-    alias: null,
-    folder: "windows/chromix",
-    contents: "Zephium browser source - package name 'zephium', crates/, desktop/, eval/; 3,691 files.",
+    contents: "VS Code OSS 1.147.0 source at SOURCE/vscode-main (21,224 files / 392 MB). The reverse-engineered Qoder desktop build is RETIRED - what we wanted from Qoder is Zingma.",
     status: "present",
   },
   {
     codename: "Codeix",
     alias: "Pro",
     folder: "windows/codeix",
-    contents: "Two OpenAI Codex MSIX packages (ui-old, ui-new) and a toggle; 2 files (1.6 GB).",
+    contents: "Two OpenAI Codex MSIX packages (ui-old, ui-new) and a toggle; 2 files (1.6 GB). Its integrated browser is the part called Chromix (no separate windows/chromix tree).",
     status: "present",
   },
   {
@@ -69,8 +62,8 @@ export const PARTS: readonly PartRecord[] = [
     codename: "Zingma",
     alias: "Lite",
     folder: "windows/zingma",
-    contents: "Empty - only window.json. Seat reserved for Qoder's native built-in Quest/agents window.",
-    status: "empty",
+    contents: "Qoder 1.18.0 native Quest/agents window (upstream codename Lingma); SOURCE/ raw + oxfmt-beautified, 66 files / 125 MB.",
+    status: "present",
   },
   {
     codename: "Sonar",
@@ -80,11 +73,11 @@ export const PARTS: readonly PartRecord[] = [
     status: "empty",
   },
   {
-    codename: "Zenix CC",
+    codename: "Zenix",
     alias: "Ultra",
-    folder: "windows/zenix-cc",
-    contents: "Empty - only window.json. Seat for native Claude Desktop.",
-    status: "empty",
+    folder: "windows/zenix",
+    contents: "Native Claude Desktop 5.1231.2; SOURCE/ with app.asar + ion-dist.asar + claude-vm VHDX, 11,874 files / 940 MB.",
+    status: "present",
   },
 ] as const;
 
@@ -95,7 +88,7 @@ export const ALIASES: Readonly<Record<PartAlias, string>> = {
   Pro: "Codeix",
   Studio: "Onyx",
   Max: "Ingot",
-  Ultra: "Zenix CC",
+  Ultra: "Zenix",
 };
 
 /** Case-insensitive lookup by codename. */
