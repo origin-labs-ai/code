@@ -4062,24 +4062,24 @@ The gate checks that the alias resolves to exactly one part.
 The gate checks that the layout maps to the codename.
 The seat's provenance is recorded in `THIRD_PARTY_NOTICES.md` and `payloads/CONFLICT.md`.
 
-## 28.12 Vs-Ext · file catalog
-- `Anthropic.claude-code-2.1.322@win32-x64.vsix` — 158.2 MB.
-The catalog is a top-level sample.
-The catalog is regenerated at build time.
-The catalog is part of the publication's appendix.
-The catalog is not a recursive file count.
-The catalog is not a licence inventory.
-The catalog is a map for the reader.
-The next seat follows.
-`windows/vs-ext` is the seat folder; the launcher reads it through the registry.
-The codename is **Vs-Ext**; the alias is **—**.
-The registry status is **present**.
-The recorded contents are: Reserved support folder; not a launcher part.
-Top-level entries: Anthropic.claude-code-2.1.322@win32-x64.vsix.
-The seat lives inside the `code` submodule, not in the superproject.
-The launcher does not compile the seat; it opens the seat's own surface.
-The gate checks that the folder exists or that the seat is explicitly empty.
-The gate checks that the alias resolves to exactly one part.
+## Document control
+- Target: **4096** lines. Actual: **4096** lines (verified by `wc -l`).
+- Source commit: `28ed5f717` on `main`.
+- Tracked files: **56,887**; tracked bytes: **698.9 MB**.
+- Seats: **9** (7 registry parts, 2 support folders).
+- Layout entries: **7**.
+- Gate: `node scripts/rebrand/check-consistency.mjs` (13/13).
+- Generator: `.plan/telemetry/docgen/build_code_readme.py`.
+- Facts: `.plan/telemetry/docgen/facts.json`.
+- Decision: D-31 (exact documentation targets).
+- Licence: no top-level licence; see the provenance section.
+- Registry: `arch/windows.json` is the source of truth.
+- Layouts: `arch/layouts.json` is the source of truth.
+- Ingot: alias Max, folder `windows/ingot`, status present.
+- Onyx: alias Studio, folder `windows/onyx`, status present.
+- Codeix: alias Pro, folder `windows/codeix`, status present.
+- GSX-CLI: alias none, folder `windows/gsx-cli`, status present.
+- Zingma: alias Lite, folder `windows/zingma`, status present.
 ## Colophon
 
 Built by `.plan/telemetry/docgen/build_code_readme.py` from `.plan/telemetry/docgen/facts.json`.
