@@ -29,7 +29,7 @@ code/
 | Codename | Alias | Folder | Contents | Status |
 | --- | --- | --- | --- | --- |
 | **Ingot** | Max | `windows/ingot` | Monorepo tree; 160,239 files (3.9 GB) | present |
-| **Onyx** | Studio | `windows/onyx` | RE'd Qoder build — `CodeFusion.exe` + `SOURCE/`; 4,715 files (943 MB) | present |
+| **Onyx** | Studio | `windows/onyx` | VS Code OSS 1.147.0 source at `SOURCE/vscode-main` (21,224 files / 392 MB); the RE'd Qoder desktop build (`Onyx.exe`) is retired | present |
 | **Codeix** | Pro | `windows/codeix` | OpenAI Codex MSIX (`ui-old`, `ui-new`) + toggle; its integrated browser is called Chromix | present |
 | **GSX-CLI** | # | `windows/gsx-cli` | opencode workspace + MiMoCode (Xiaomi) source; 2,060 files | present |
 | **Zingma** | Lite | `windows/zingma` | Qoder's native Quest/agents window — `SOURCE/` extracted | present |
@@ -48,7 +48,7 @@ Codeix; there is no `windows/chromix` tree.
 - **Provenance is a fact, not a name.** Zephium, opencode, OpenAI Codex, Qoder, DeepSeek and
   Claude describe where a tree came from; they are never the part's name.
 - **Launcher owns no logic.** It reads `arch/windows.json`; only **Ingot**
-  (`pnpm dev:desktop`) and **Onyx** (`CodeFusion.exe`) have a startable entry, and the script
+  (`pnpm dev:desktop`) and **Onyx** (`Onyx.exe`) have a startable entry, and the script
   says so for the rest.
 - **`windows/onyx` is a real folder** — the earlier junction to `windows/obsidian` is gone.
 

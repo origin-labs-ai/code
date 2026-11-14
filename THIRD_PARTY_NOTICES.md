@@ -78,7 +78,7 @@ and author. The list below is the authoritative inventory for this repository.
 
 If you are an upstream author and want a component removed, re-attributed, or
 updated to a newer revision, open an issue at
-https://github.com/origin-labs-ai/code-fusion/issues or contact the maintainer.
+https://github.com/origin-labs-ai/code/issues or contact the maintainer.
 Attribution fixes are applied to the vendored copy and to this file together.
 
 ## Adding a new vendored mod

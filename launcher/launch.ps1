@@ -7,7 +7,7 @@
 
   Usage:
     .\launch.ps1              # list parts + aliases
-    .\launch.ps1 studio       # alias -> Onyx, starts CodeFusion.exe
+    .\launch.ps1 studio       # alias -> Onyx, starts Onyx.exe
     .\launch.ps1 max          # alias -> Ingot, starts pnpm dev:desktop
     .\launch.ps1 zenix        # codename: prints contents + status
 #>
@@ -50,10 +50,10 @@ switch ($entry.codename) {
     try { & pnpm dev:desktop } finally { Pop-Location }
   }
   "Onyx" {
-    $exe = Join-Path $folder "CodeFusion.exe"
-    if (-not (Test-Path $exe)) { "Onyx has no CodeFusion.exe at " + $folder; exit 1 }
+    $exe = Join-Path $folder "Onyx.exe"
+    if (-not (Test-Path $exe)) { "Onyx has no Onyx.exe at " + $folder; exit 1 }
     Start-Process -FilePath $exe -WorkingDirectory $folder
-    "Started Onyx (CodeFusion.exe)"
+    "Started Onyx (Onyx.exe)"
   }
   default {
     $entry.codename + " [" + $entry.status + "]"

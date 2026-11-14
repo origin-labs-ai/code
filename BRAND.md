@@ -56,8 +56,9 @@ Sending an alias to the launcher resolves it: `.\launch.ps1 studio` → Onyx.
   `alias: null` until one is decided.
 - The fork of a part may be stated as a fact (Zephium, opencode, OpenAI Codex, Qoder,
   DeepSeek, Claude) — that is provenance, not naming.
-- The only `CodeFusion` string left in the tree is the executable name of Onyx
-  (`CodeFusion.exe`); renaming it is a separate mechanical step.
+- The `CodeFusion.exe` name is gone: Onyx's executable is `Onyx.exe` (rename executed,
+  recorded as review-tracking finding D3). The RE'd Qoder desktop build it belonged to is
+  retired — Onyx's present content is the VS Code OSS source at `SOURCE/vscode-main`.
 
 ## Where this lives
 
